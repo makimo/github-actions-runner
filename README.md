@@ -1,5 +1,7 @@
 # Github Action Runner
 
+![Publish Image](https://github.com/makimo/github-actions-runner/workflows/Publish%20Image/badge.svg)
+
 The Docker image to locally test the GitHub actions, based on
 [nektos/act](https://github.com/nektos/act) utility. For known issues
 and limitations of the runner please check out the
@@ -12,7 +14,8 @@ directory:
 
 ```
 $ docker run --rm -it \
-    -v "$(pwd):/app" -v /var/run:/var/run \
+    -v "$(pwd):/app" \
+    -v /var/run:/var/run \
     -w /app \
     docker.pkg.github.com/makimo/github-actions-runner/ghar
 ```
