@@ -31,3 +31,4 @@ jobs:
           registry: docker.pkg.github.com
           repository: makimo/github-actions-runner/ghar
           tag_with_ref: true
+          tags: latest

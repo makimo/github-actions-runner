@@ -11,11 +11,10 @@ To execute the actions in the current project run in the root
 directory:
 
 ```
-$ docker run \
-    --rm -it \
+$ docker run --rm -it \
     -v "$(pwd):/app" -v /var/run:/var/run \
     -w /app \
-    docker.pkg.github.com/makimo/github-action-runner/ghar
+    docker.pkg.github.com/makimo/github-actions-runner/ghar
 ```
 
 > Note: this will use the `docker` from the host machine to spawn
