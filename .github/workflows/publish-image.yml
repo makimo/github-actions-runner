@@ -1,0 +1,33 @@
+name: Publish Image
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build-and-push:
+    name: Publish Docker Image to GitHub Packages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Create release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN  }}
+        with:
+          tag_name: ${{ github.ref  }}
+          release_name: Release ${{ github.ref  }}
+          draft: false
+          prerelease: false
+
+      - name: Push to Registry
+        uses: docker/build-push-actions@v1
+        with:
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: docker.pkg.github.com
+          repository: makimo/github-actions-runner/ghar
+          tag_with_ref: true
