@@ -1,6 +1,6 @@
 FROM alpine
 
-LABEL version="1.0.0"
+LABEL version="20201024"
 LABEL description="Docker image for testing GitHub Actions locally"
 LABEL maintainer="marcin.strus@makimo.pl"
 LABEL company="Makimo"
